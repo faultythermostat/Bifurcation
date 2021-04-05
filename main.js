@@ -4,7 +4,12 @@
 //test other equations
 
 init = function() {
-	ctx.init()
+	var c = document.getElementById("Canvas");
+	ctx = c.getContext("2d");
+	ctx.canvas.width = window.innerWidth;
+	ctx.canvas.height = window.innerHeight;
+	SCREENWIDTH = window.innerWidth;
+	SCREENHEIGHT = window.innerHeight;
 
 	//set up
 	CURRENTR = 2.4
@@ -15,7 +20,7 @@ init = function() {
 	MAXVALS = 100
 	PRECISION = 10000
 	SHOWALL = false;//shows all values for x, causes lots of chaos!
-	ctx.setColor("white")
+	ctx.fillStyle = "white"
 	
 	loop();
 }
@@ -24,7 +29,7 @@ init = function() {
 bifurcate = function(r,i,m) {
 	var x=STARTX;
 	var retVals = []
-	if (SHOWALL) ctx.setColor("red")
+	if (SHOWALL) ctx.fillStyle = "red"
 	for (n=0;n<i+m;n++){
 		x=r*x*(1-x)
 		if (SHOWALL) ctx.fillRect(((CURRENTR-2.4)/RWIDTH)*SCREENWIDTH,(1-x)*SCREENHEIGHT,1,1)
@@ -33,7 +38,7 @@ bifurcate = function(r,i,m) {
 			retVals.push(Math.round(x*PRECISION)/PRECISION)
 		}
 	};
-	if (SHOWALL) ctx.setColor("white")
+	if (SHOWALL) ctx.fillStyle = "white"
 	return retVals
 }
 
