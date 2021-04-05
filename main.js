@@ -14,7 +14,7 @@ init = function() {
 	ITERATIONS = 100
 	MAXVALS = 100
 	PRECISION = 10000
-	SHOWALL = true;//shows all values for x, causes lots of chaos!
+	SHOWALL = false;//shows all values for x, causes lots of chaos!
 	ctx.setColor("white")
 	
 	loop();
